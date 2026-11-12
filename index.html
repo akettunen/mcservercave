@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="mcsc_logo.png">
+  <title>mcservercave</title>
+  <style>
+    @font-face {
+      font-family: 'Monocraft';
+      src: url('Monocraft.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    body {
+      background-color: black;
+      font-family: 'Monocraft', monospace;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image: url("");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: blur(5px);
+      transform: scale(1.05);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header img {
+      width: 64px;
+      height: 64px;
+      image-rendering: pixelated;
+    }
+
+    h1 {
+      font-size: 1.4em;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    h1, h3, h4, p, li, small, .label {
+      color: white;
+      text-shadow: 0 0 6px black;
+    }
+
+    /* Rainbow animation (shared by headings, links and button text) */
+    .rainbow,
+    .rainbow-link,
+    .rainbow-text {
+      background: linear-gradient(
+        90deg,
+        #ff0000, #ff9900, #ffee00, #33ff00,
+        #00ccff, #6633ff, #ff00cc, #ff0000
+      );
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      text-shadow: none;
+      animation: rainbow-move 3s linear infinite;
+    }
+
+    @keyframes rainbow-move {
+      to { background-position: 200% center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .rainbow, .rainbow-link, .rainbow-text { animation: none; }
+    }
+
+    /* Server list */
+    .server {
+      margin: 24px 0;
+    }
+
+    .server img {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .server h3 {
+      margin: 0 0 8px;
+      font-size: 1.2em;
+    }
+
+    .server h4 {
+      margin: 0;
+      font-size: 0.9em;
+      font-weight: normal;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 8px 0;
+    }
+
+    .label {
+      min-width: 90px;
+    }
+
+    .rainbow-link {
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 2px solid transparent;
+    }
+
+    .rainbow-link:hover {
+      border-bottom-color: white;
+    }
+
+    .copy-btn {
+      font-family: inherit;
+      font-size: inherit;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid grey;
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      border-color: aqua;
+    }
+
+    .copy-btn.copied {
+      border-color: rgb(90, 176, 106);
+    }
+
+    /* "Copied!" turns solid green instead of rainbow */
+    .copy-btn.copied .rainbow-text {
+      background: none;
+      animation: none;
+      -webkit-text-fill-color: rgb(90, 176, 106);
+      color: rgb(90, 176, 106);
+    }
+
+    strong {
+      color: rgb(41, 41, 141);
+    }
+
+    .grey {
+      color: grey;
+      font-weight: bold;
+    }
+
+    .white-bg {
+      background-color: white;
+    }
+
+    .aqua {
+      color: aqua;
+    }
+
+    .green {
+      color: rgb(60, 141, 75);
+    }
+
+    .green2 {
+      color: rgb(90, 176, 106);
+    }
+
+    .blue {
+      color: rgb(51, 115, 141);
+    }
+
+    a {
+      color: mediumpurple;
+    }
+
+    hr {
+      border: 1px solid grey;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="mcsc_logo.png" width="64" height="64" alt="Logo">
+    <h1 class="rainbow">Welcome to mcservercave!</h1>
+  </div>
+  <hr>
+
+  <!-- ===================== JAVA ===================== -->
+  <h1 class="rainbow">Popular Servers:</h1>
+  <h1 class="rainbow">TOP 3 (Java):</h1>
+
+  <div class="server">
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftheme.zdassets.com%2Ftheme_assets%2F10481108%2Fa4247f3b24c8fd1d978b6f0f5b19e38ef20e7bbf.png&f=1&nofb=1&ipt=6d962c804d2d390d6bab284aff98ab0252c0e8bb2ec5bb610fef0f2d40e7a0ae&ipo=images" width="128" height="64" alt="Hypixel">
+    <h3>- Hypixel</h3>
+    <div class="row">
+      <span class="label">Server IP:</span>
+      <button class="copy-btn" data-copy="hypixel.net" title="Click to copy"><span class="rainbow-text">hypixel.net</span></button>
+    </div>
+    <div class="row">
+      <span class="label">Website:</span>
+      <a class="rainbow-link" href="https://hypixel.net/" target="_blank" rel="noopener noreferrer">https://hypixel.net/</a>
+    </div>
+  </div>
+  <hr>
+
+  <div class="server">
+    <img src="https://website.donutsmp.org/logo.png" width="64" height="64" alt="DonutSMP">
+    <h3>- DonutSMP</h3>
+    <div class="row">
+      <span class="label">Server IP:</span>
+      <button class="copy-btn" data-copy="donutsmp.net" title="Click to copy"><span class="rainbow-text">donutsmp.net</span></button>
+    </div>
+    <div class="row">
+      <span class="label">Website:</span>
+      <a class="rainbow-link" href="https://store.donutsmp.net/" target="_blank" rel="noopener noreferrer">https://store.donutsmp.net/</a>
+    </div>
+  </div>
+  <hr>
+
+  <div class="server">
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.Yie5IVer7NhdMslclpHwfQHaHa%3Fr%3D0%26pid%3DApi&f=1&ipt=a707a9ddb34278c1c21cafe9e68634b2f806398e0a54add60eca5dd2883a7cf6&ipo=images" width="64" height="64" alt="CubeCraft">
+    <h3>- CubeCraft</h3>
+    <div class="row">
+      <span class="label">Server IP:</span>
+      <button class="copy-btn" data-copy="play.cubecraft.net" title="Click to copy"><span class="rainbow-text">play.cubecraft.net</span></button>
+    </div>
+    <div class="row">
+      <span class="label">Website:</span>
+      <a class="rainbow-link" href="https://www.cubecraft.net/" target="_blank" rel="noopener noreferrer">https://www.cubecraft.net/</a>
+    </div>
+  </div>
+  <hr>
+
+  <!-- ===================== BEDROCK ===================== -->
+  <h1 class="rainbow">Popular Servers:</h1>
+  <h1 class="rainbow">TOP 3 (Bedrock):</h1>
+
+  <div class="server">
+    <img src="https://playhive.com/content/images/2021/11/Hive---Yellow.png" width="128" height="64" alt="The Hive">
+    <h3>- The Hive</h3>
+    <div class="row">
+      <span class="label">Server IP & Port (Main):</span>
+      <button class="copy-btn" data-copy="geo.hivebedrock.network" title="Click to copy"><span class="rainbow-text">geo.hivebedrock.network</span></button>
+      <button class="copy-btn" data-copy="19132" title="Click to copy"><span class="rainbow-text">19132</span></button>
+    </div>
+    <div class="row">
+      <h4>For better ping, The Hive hosts multiple servers around the world:</h4>
+    </div>
+    <div class="row">
+      <a class="rainbow-link" href="https://support.playhive.com/how-to-join/" target="_blank" rel="noopener noreferrer">https://support.playhive.com/how-to-join/</a>
+    </div>
+    <div class="row">
+      <span class="label">Website:</span>
+      <a class="rainbow-link" href="https://playhive.com/" target="_blank" rel="noopener noreferrer">https://playhive.com/</a>
+    </div>
+  </div>
+  <hr>
+
+  <div class="server">
+    <img src="https://website.donutsmp.org/logo.png" width="64" height="64" alt="DonutSMP">
+    <h3>- DonutSMP</h3>
+    <div class="row">
+      <span class="label">Server IP & Port:</span>
+      <button class="copy-btn" data-copy="donutsmp.net" title="Click to copy"><span class="rainbow-text">donutsmp.net</span></button>
+      <button class="copy-btn" data-copy="19132" title="Click to copy"><span class="rainbow-text">19132</span></button>
+    </div>
+    <div class="row">
+      <span class="label">Website:</span>
+      <a class="rainbow-link" href="https://store.donutsmp.net/" target="_blank" rel="noopener noreferrer">https://store.donutsmp.net/</a>
+    </div>
+  </div>
+  <hr>
+
+  <div class="server">
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.Yie5IVer7NhdMslclpHwfQHaHa%3Fr%3D0%26pid%3DApi&f=1&ipt=a707a9ddb34278c1c21cafe9e68634b2f806398e0a54add60eca5dd2883a7cf6&ipo=images" width="64" height="64" alt="CubeCraft">
+    <h3>- CubeCraft</h3>
+    <div class="row">
+      <span class="label">Server IP & Port:</span>
+      <button class="copy-btn" data-copy="play.cubecraft.net" title="Click to copy"><span class="rainbow-text">play.cubecraft.net</span></button>
+      <button class="copy-btn" data-copy="19132" title="Click to copy"><span class="rainbow-text">19132</span></button>
+    </div>
+    <div class="row">
+      <span class="label">Website:</span>
+      <a class="rainbow-link" href="https://www.cubecraft.net/" target="_blank" rel="noopener noreferrer">https://www.cubecraft.net/</a>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      var label = btn.querySelector('.rainbow-text');
+      var original = label.textContent;
+
+      btn.addEventListener('click', function () {
+        var text = btn.dataset.copy;
+
+        function done() {
+          label.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(function () {
+            label.textContent = original;
+            btn.classList.remove('copied');
+          }, 1500);
+        }
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(done);
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          done();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
